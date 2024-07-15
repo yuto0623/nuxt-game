@@ -1,16 +1,16 @@
 <script setup lang="ts">
-const { count, thinVillagersCount, thinVillagersCountPrice, incrementCount, decrementCount } = useNumberStates()
+const { count, villagersCount, villagersIncrementCount, villagersCountPrice, incrementCount, decrementCount } = useNumberStates()
 
 const villagersCountHandler = () => {
-  if (count.value < thinVillagersCountPrice.value) {
+  if (count.value < villagersCountPrice.value) {
     return;
   }
-  incrementCount(thinVillagersCount)
-  decrementCount(count, thinVillagersCountPrice.value)
+  incrementCount(villagersCount)
+  decrementCount(count, villagersCountPrice.value)
 }
 </script>
 
 <template>
-  <UButton @click="villagersCountHandler" class="block" :disabled="count < thinVillagersCountPrice">やせ細った村人を一人雇う：{{
-    thinVillagersCountPrice }}円(毎秒1円)</UButton>
+  <UButton @click="villagersCountHandler" class="block" :disabled="count < villagersCountPrice">普通の村人を一人雇う：{{
+    villagersCountPrice }}円(毎秒{{ villagersIncrementCount }}円)</UButton>
 </template>
