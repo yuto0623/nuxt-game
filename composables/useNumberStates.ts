@@ -8,7 +8,7 @@ export const useNumberStates = () => {
 	const count = useState<number>("count", () => 0);
 
 	//時間の速さ
-	const timeSpeed = useState<number>("timeSpeed", () => 1000);
+	const timeSpeed = useState<number>("timeSpeed", () => 1);
 
 	//やせ細った村人
 	const thinVillagers = useShopListState(
