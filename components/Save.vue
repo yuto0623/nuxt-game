@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { count, thinVillagersCount, thinVillagersCountPrice, incrementCount, decrementCount } = useNumberStates()
 const { saveImport, saveExport } = useSave()
 
 const ref_input = ref<HTMLInputElement>()

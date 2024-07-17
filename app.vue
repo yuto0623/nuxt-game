@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const { count, timeSpeed, thinVillagersCount, thinVillagersIncrementCount, thinVillagersCountPrice, incrementCount, decrementCount } = useNumberStates()
+const { clickCount, count, timeSpeed, shopList, incrementCount, decrementCount } = useNumberStates()
 
 onMounted(() => {
   const interval = setInterval(() => {
-    incrementCount(count, thinVillagersCount.value * thinVillagersIncrementCount.value)
+    incrementCount(count, shopList.thinVillagers.count.value * shopList.thinVillagers.incrementCount.value)
   }, timeSpeed.value)
 
   onUnmounted(() => {
@@ -13,20 +13,19 @@ onMounted(() => {
 
 const countHandler = () => {
   incrementCount(count)
+  incrementCount(clickCount)
 }
 
 </script>
 
 <template>
   <div class="flex h-[100dvh]">
-    <Sidebar />
     <div class="flex justify-center items-center basis-5/6 flex-col">
-      <p class="text-3xl mb-9">{{ count.toFixed(1) }}円</p>
+      <p class="text-3xl mb-9">{{ count.toFixed(1) }}</p>
       <UCard class="max-w-sm">
         <UButton @click="countHandler" class="block my-2">1円拾う</UButton>
-        <shopListThinVillagers />
-        <ShopListVillagers />
       </UCard>
     </div>
+    <Sidebar />
   </div>
 </template>

@@ -1,9 +1,11 @@
 export const useSave = () => {
 	const {
+		clickCount,
 		count,
-		thinVillagersCount,
-		thinVillagersIncrementCount,
-		thinVillagersCountPrice,
+		shopList,
+		// thinVillagersCount,
+		// thinVillagersIncrementCount,
+		// thinVillagersPrice,
 		incrementCount,
 		decrementCount,
 	} = useNumberStates();
@@ -13,18 +15,23 @@ export const useSave = () => {
 		reader.readAsText(file);
 		await reader.addEventListener("load", () => {
 			const json = JSON.parse(reader.result as string);
+			clickCount.value = json.clickCount;
 			count.value = json.count;
-			thinVillagersCount.value = json.villagersCount;
+			shopList.thinVillagers.count.value = json.thinVillagersCount;
+			shopList.thinVillagers.incrementCount.value =
+				json.thinVillagersIncrementCount;
+			shopList.thinVillagers.price.value = json.thinVillagersPrice;
 		});
 	};
 
 	const saveExport = () => {
 		console.log("saveOutput");
 		const data = {
+			clickCount: clickCount.value,
 			count: count.value,
-			villagersCount: thinVillagersCount.value,
-			thinVillagersIncrementCount: thinVillagersIncrementCount.value,
-			thinVillagersCountPrice: thinVillagersCountPrice.value,
+			thinVillagersCount: shopList.thinVillagers.count.value,
+			thinVillagersIncrementCount: shopList.thinVillagers.incrementCount.value,
+			thinVillagersPrice: shopList.thinVillagers.price.value,
 		};
 		const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
 		const url = URL.createObjectURL(blob);
