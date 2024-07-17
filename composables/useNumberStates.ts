@@ -11,10 +11,16 @@ export const useNumberStates = () => {
 	const timeSpeed = useState<number>("timeSpeed", () => 1000);
 
 	//やせ細った村人
-	const thinVillagers = useShopListState("thinVillagers", 0, 0.1, 10);
+	const thinVillagers = useShopListState(
+		"thinVillagers",
+		"やせ細った村人",
+		0,
+		0.1,
+		10,
+	);
 
 	//村人
-	const villagers = useShopListState("villagers", 0, 1.5, 100);
+	const villagers = useShopListState("villagers", "村人", 0, 1.5, 100);
 
 	//カウントを増やす
 	const incrementCount = (countName: CountRef, updateValue = 1) => {
@@ -42,10 +48,12 @@ export const useNumberStates = () => {
 //ショップリストの状態管理用関数
 const useShopListState = (
 	key: string,
+	initialName: string,
 	initialCount: number,
 	initialIncrementCount: number,
 	initialPrice: number,
 ) => {
+	const name = useState<string>(`${key}Name`, () => initialName);
 	const count = useState<number>(`${key}Count`, () => initialCount);
 	const incrementCount = useState<number>(
 		`${key}IncrementCount`,
@@ -53,5 +61,7 @@ const useShopListState = (
 	);
 	const price = useState<number>(`${key}Price`, () => initialPrice);
 
-	return { count, incrementCount, price };
+	return { name, count, incrementCount, price };
 };
+
+export type shopState = ReturnType<typeof useShopListState>;

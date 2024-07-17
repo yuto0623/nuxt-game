@@ -19,8 +19,8 @@ const { clickCount, count, shopList, incrementCount } = useNumberStates()
     </div>
     <template #footer>
       <div class="flex gap-2 flex-col">
-        <shopListThinVillagers />
-        <ShopListVillagers />
+        <Shop :shop="shopList.thinVillagers" />
+        <Shop :shop="shopList.villagers" />
       </div>
     </template>
   </UCard>
