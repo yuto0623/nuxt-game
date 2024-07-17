@@ -14,6 +14,7 @@ onMounted(() => {
 const countHandler = () => {
   incrementCount(count)
   incrementCount(clickCount)
+
 }
 
 </script>

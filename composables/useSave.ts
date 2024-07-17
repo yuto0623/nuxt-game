@@ -1,26 +1,22 @@
 export const useSave = () => {
-	const {
-		clickCount,
-		count,
-		shopList,
-		// thinVillagersCount,
-		// thinVillagersIncrementCount,
-		// thinVillagersPrice,
-		incrementCount,
-		decrementCount,
-	} = useNumberStates();
+	const { clickCount, count, shopList, incrementCount, decrementCount } =
+		useNumberStates();
 
 	const saveImport = async (file: File) => {
 		const reader = new FileReader();
 		reader.readAsText(file);
 		await reader.addEventListener("load", () => {
 			const json = JSON.parse(reader.result as string);
+
 			clickCount.value = json.clickCount;
 			count.value = json.count;
-			shopList.thinVillagers.count.value = json.thinVillagersCount;
-			shopList.thinVillagers.incrementCount.value =
-				json.thinVillagersIncrementCount;
-			shopList.thinVillagers.price.value = json.thinVillagersPrice;
+
+			for (const [key, value] of Object.entries(shopList)) {
+				if (!json[`${key}Count`]) continue;
+				value.count.value = json[`${key}Count`];
+				value.incrementCount.value = json[`${key}IncrementCount`];
+				value.price.value = json[`${key}Price`];
+			}
 		});
 	};
 

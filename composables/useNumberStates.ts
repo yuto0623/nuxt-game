@@ -12,21 +12,9 @@ export const useNumberStates = () => {
 
 	//やせ細った村人
 	const thinVillagers = useShopListState("thinVillagers", 0, 0.1, 10);
-	// const thinVillagersCount = useState<number>("thinVillagersCount", () => 0);
-	// const thinVillagersIncrementCount = useState<number>(
-	// 	"thinVillagersIncrementCount",
-	// 	() => 0.1,
-	// );
-	// const thinVillagersPrice = useState<number>("thinVillagersPrice", () => 10);
 
 	//村人
 	const villagers = useShopListState("villagers", 0, 1.5, 100);
-	// const villagersCount = useState<number>("villagersCount", () => 0);
-	// const villagersIncrementCount = useState<number>(
-	// 	"villagersIncrementCount",
-	// 	() => 1.5,
-	// );
-	// const villagersPrice = useState<number>("villagersPrice", () => 100);
 
 	//カウントを増やす
 	const incrementCount = (countName: CountRef, updateValue = 1) => {
