@@ -11,7 +11,12 @@ const villagersCountHandler = () => {
 </script>
 
 <template>
-  <UButton @click="villagersCountHandler" class="block w-full" :disabled="count < shopList.thinVillagers.price.value">
+  <UButton @click="villagersCountHandler" class="flex w-full justify-center items-center py-4"
+    :disabled="count < shopList.thinVillagers.price.value">
     やせ細った村人を一人雇う<br />{{
-      shopList.thinVillagers.price.value }}円(毎秒{{ shopList.thinVillagers.incrementCount }}円)</UButton>
+      shopList.thinVillagers.price.value }}円(毎秒{{ shopList.thinVillagers.incrementCount }}円)
+    <template #leading>
+      <UAvatar src="shopList/thinVillagers.png" size="sm" imgClass="object-contain" />
+    </template>
+  </UButton>
 </template>

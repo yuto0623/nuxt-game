@@ -21,7 +21,8 @@ const countHandler = () => {
 
 <template>
   <div class="flex h-[100dvh]">
-    <div class="flex justify-center items-center basis-5/6 flex-col">
+    <div class="flex justify-center items-center basis-5/6 h-[100dvh] flex-col relative">
+      <Background />
       <p class="text-3xl mb-9">{{ count.toFixed(1) }}</p>
       <UCard class="max-w-sm">
         <UButton @click="countHandler" class="block my-2">1円拾う</UButton>
