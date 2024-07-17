@@ -34,12 +34,6 @@ export const useNumberStates = () => {
 			thinVillagers: thinVillagers,
 			villagers: villagers,
 		},
-		// thinVillagersCount,
-		// thinVillagersIncrementCount,
-		// thinVillagersPrice,
-		// villagersCount,
-		// villagersIncrementCount,
-		// villagersPrice,
 		incrementCount,
 		decrementCount,
 	};
