@@ -61,7 +61,7 @@ const useShopListState = (
 	);
 	const price = useState<number>(`${key}Price`, () => initialPrice);
 
-	return { name, count, incrementCount, price };
+	return { key, name, count, incrementCount, price };
 };
 
 export type shopState = ReturnType<typeof useShopListState>;

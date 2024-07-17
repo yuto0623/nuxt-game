@@ -4,7 +4,7 @@ const { clickCount, count, shopList, incrementCount } = useNumberStates()
 </script>
 
 <template>
-  <UCard class="basis-1/6 min-w-[255px] ">
+  <UCard class="basis-1/6 min-w-[270px] ">
     <template #header>
       <Save />
     </template>
