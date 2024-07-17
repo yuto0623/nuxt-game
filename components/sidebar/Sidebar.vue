@@ -18,7 +18,7 @@ const { clickCount, count, shopList, incrementCount } = useNumberStates()
         shopList.villagers.incrementCount.value).toFixed(1) }}円)</p>
     </div>
     <template #footer>
-      <div class="">
+      <div class="flex gap-2 flex-col">
         <shopListThinVillagers />
         <ShopListVillagers />
       </div>
